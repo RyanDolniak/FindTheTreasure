@@ -1,0 +1,19 @@
+{
+  "name": "find-the-treasure",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RyanDolniak/FindTheTreasure.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RyanDolniak/FindTheTreasure/issues"
+  },
+  "homepage": "https://github.com/RyanDolniak/FindTheTreasure#readme"
+}
