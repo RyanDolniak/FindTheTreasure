@@ -3,46 +3,58 @@ function findTheTreasure(startingPostion, direction, instructions) {
     //this.direction = "";
     //this.instructions = [""];
     //let instructionsCount = this.instructions.length;
-    let XPostion = this.startingPostion[0];
-    let YPostion = this.startingPostion[1];
+
+    /*for( let c = 0; c<startingPostion.length; c++) {
+        console.log(startingPostion[c]);
+    }*/
 
 
-    console.log("Starting at (" + this.startingPostion[0] +", " + this.startingPostion[1]
-            + ") and facing " + this.direction);
+    let XPostion = startingPostion[0];
+    let YPostion = startingPostion[1];
+    let gridPosition = [2];
+
+    console.log("Starting at (" + startingPostion[0] +", " + startingPostion[1]
+            + ") and facing " + direction);
 
 
-    for(let i = 0; i<this.instructions.length; i++){
-        if(this.instruction = "Forward"){
-            moveForward(this.XPostion, this.YPostion, this.direction)
+    for(let i = 0; i<instructions.length; i++){
+        if(instructions[i] == "Forward"){
+            gridPosition = moveForward(XPostion, YPostion, direction)
+            XPostion = gridPosition[0];
+            YPostion = gridPosition[1];
         }
-        if(this.instruction = "Right"){
-            moveForward(this.startingPostion[0], this.startingPostion[1], this.direction)
+        else if(instructions[i] == "Right"){
+            direction = turnRight(XPostion, YPostion, direction)
         }
-        if(this.instruction = "Left"){
-            moveForward(this.startingPostion[0], this.startingPostion[1], this.direction)
+        else if(instructions[i] == "Left"){
+            direction = turnLeft(XPostion, YPostion, direction)
         }
     }
 }
 
 function moveForward(x, y, direction) {
-    //this.x ='';
-    //this.y = '';
-    //this.direction = "";
+    let gridPosition = [2];
 
-    if(this.direction = "North"){
-        this.y++;
+    if(direction == "North"){
+        y++;
     }
-    if(this.direction = "South"){
-        this.y--;
+    else if(direction == "South"){
+        y--;
     }
-    if(this.direction = "East"){
-        this.x++;
+    else if(direction == "East"){
+        x++;
     }
-    if(this.direction = "West"){
-        this.x--;
+    else if(direction == "West"){
+        x--;
     }
 
-    console.log("Moving " + this.direction + " one pace to (" + x + ", "+ y + ")");
+    console.log("Moving " + direction + " one pace to (" + x + ", "+ y + ")");
+
+    
+    gridPosition[0] = x;
+    gridPosition[1] = y;
+
+    return gridPosition;
 }
 
 function turnRight(x, y, direction) {
@@ -50,20 +62,22 @@ function turnRight(x, y, direction) {
     //this.y = '';
     //this.direction = "";
 
-    if(this.direction = "North"){
-        this.direction = "East";
+    if(direction == "North"){
+        direction = "East";
     }
-    if(this.direction = "South"){
-        this.direction = "West";
+    else if(direction == "South"){
+        direction = "West";
     }
-    if(this.direction = "East"){
-        this.direction = "South";
+    else if(direction == "East"){
+        direction = "South";
     }
-    if(this.direction = "West"){
-        this.direction = "North";
+    else if(direction == "West"){
+        direction = "North";
     }
 
-    console.log("Turning right to face" + this.direction);
+    console.log("Turning right to face " + direction);
+
+    return direction;
 }
 
 function turnLeft(x, y, direction) {
@@ -71,20 +85,22 @@ function turnLeft(x, y, direction) {
     //this.y = '';//
     //this.direction = "";
 
-    if(this.direction = "North"){
-        this.direction = "West";
+    if(direction == "North"){
+        direction = "West";
     }
-    if(this.direction = "South"){
-        this.direction = "East";
+    else if(direction == "South"){
+        direction = "East";
     }
-    if(this.direction = "East"){
-        this.direction = "North";
+    else if(direction == "East"){
+        direction = "North";
     }
-    if(this.direction = "West"){
-        this.direction = "South";
+    else if(direction == "West"){
+        direction = "South";
     }
 
-    console.log("Turning left to face" + this.direction);
+    console.log("Turning left to face " + direction);
+
+    return direction;
 }
 
  module.exports = {
